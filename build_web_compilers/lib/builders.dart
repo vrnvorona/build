@@ -48,7 +48,8 @@ Builder ddcKernelBuilder(BuilderOptions options) {
       useIncrementalCompiler: _readUseIncrementalCompilerOption(options),
       trackUnusedInputs: _readTrackInputsCompilerOption(options),
       // ignore: deprecated_member_use
-      experiments: _readExperimentOption(options));
+      experiments: _readExperimentOption(options),
+      verbose: _readVerboseOption(options));
 }
 
 Builder sdkJsCopyBuilder(_) => SdkJsCopyBuilder();
@@ -100,6 +101,10 @@ Map<String, String> _readEnvironmentOption(BuilderOptions options) {
   return Map.from((options.config[_environmentOption] as Map) ?? {});
 }
 
+bool _readVerboseOption(BuilderOptions options) {
+  return options.config[_verboseOption] as bool ?? false;
+}
+
 List<String> _readExperimentOption(BuilderOptions options) {
   var deprecatedConfig = options.config[_experimentOption] as List;
   if (deprecatedConfig != null) {
@@ -123,9 +128,11 @@ const _useIncrementalCompilerOption = 'use-incremental-compiler';
 const _trackUnusedInputsCompilerOption = 'track-unused-inputs';
 const _environmentOption = 'environment';
 const _experimentOption = 'experiments';
+const _verboseOption = 'verbose';
 const _supportedOptions = [
   _environmentOption,
   _experimentOption,
   _useIncrementalCompilerOption,
-  _trackUnusedInputsCompilerOption
+  _trackUnusedInputsCompilerOption,
+  _verboseOption,
 ];

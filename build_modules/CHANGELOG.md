@@ -1,3 +1,8 @@
+## 2.11.0
+
+- Added a `verbose` option to the kernel builder, which is plumbed through to
+  the compiler and gives fine grained timing and diagnostic information.
+
 ## 2.10.0
 
 - Deprecated the `experiments` argument to `KernelBuilder` and default it to

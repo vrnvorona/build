@@ -74,6 +74,9 @@ class KernelBuilder implements Builder {
   /// Experiments to pass to kernel (as --enable-experiment=<experiment> args).
   final Iterable<String> experiments;
 
+  /// Enables verbose logging from the kernel worker.
+  final bool verbose;
+
   KernelBuilder(
       {@required this.platform,
       @required this.summaryOnly,
@@ -84,7 +87,8 @@ class KernelBuilder implements Builder {
       bool trackUnusedInputs,
       String platformSdk,
       String kernelTargetName,
-      @Deprecated(_deprecatedExperimentsMessage) Iterable<String> experiments})
+      @Deprecated(_deprecatedExperimentsMessage) Iterable<String> experiments,
+      bool verbose})
       : platformSdk = platformSdk ?? sdkDir,
         kernelTargetName = kernelTargetName ?? platform.name,
         librariesPath = librariesPath ??
@@ -94,7 +98,8 @@ class KernelBuilder implements Builder {
         buildExtensions = {
           moduleExtension(platform): [outputExtension]
         },
-        experiments = experiments ?? enabledExperiments;
+        experiments = experiments ?? enabledExperiments,
+        verbose = verbose ?? false;
 
   @override
   Future build(BuildStep buildStep) async {
@@ -120,7 +125,8 @@ class KernelBuilder implements Builder {
           librariesPath: librariesPath,
           useIncrementalCompiler: useIncrementalCompiler,
           trackUnusedInputs: trackUnusedInputs,
-          experiments: experiments);
+          experiments: experiments,
+          verbose: verbose);
     } on MissingModulesException catch (e) {
       log.severe(e.toString());
     } on KernelException catch (e, s) {
@@ -145,7 +151,8 @@ Future<void> _createKernel(
     @required String librariesPath,
     @required bool useIncrementalCompiler,
     @required bool trackUnusedInputs,
-    @required Iterable<String> experiments}) async {
+    @required Iterable<String> experiments,
+    @required bool verbose}) async {
   var request = WorkRequest();
   var scratchSpace = await buildStep.fetchResource(scratchSpaceResource);
   var outputId = module.primarySource.changeExtension(outputExtension);
@@ -193,6 +200,7 @@ Future<void> _createKernel(
         useIncrementalCompiler,
         buildStep,
         experiments,
+        verbose,
         usedInputsFile: usedInputsFile,
         kernelInputPathToId: kernelInputPathToId);
   });
@@ -365,7 +373,8 @@ Future<void> _addRequestArguments(
   bool summaryOnly,
   bool useIncrementalCompiler,
   AssetReader reader,
-  Iterable<String> experiments, {
+  Iterable<String> experiments,
+  bool verbose, {
   File usedInputsFile,
   Map<String, AssetId> kernelInputPathToId,
 }) async {
@@ -400,6 +409,7 @@ Future<void> _addRequestArguments(
       '--input-${summaryOnly ? 'summary' : 'linked'}=${input.path}',
     for (var experiment in experiments) '--enable-experiment=$experiment',
     for (var source in module.sources) _sourceArg(source),
+    if (verbose) '--verbose',
   ]);
 
   request.inputs.addAll([

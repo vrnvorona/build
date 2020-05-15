@@ -1,3 +1,7 @@
+## 2.12.0
+
+- Add support for a `verbose` option to the `build_web_compilers|ddc` builder.
+
 ## 2.11.0
 
 - Deprecated support for the `experiments` configuration in favor of the
