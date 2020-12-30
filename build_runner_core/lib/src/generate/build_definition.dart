@@ -225,8 +225,8 @@ class _Loader {
           _environment.reader, _options.packageGraph, assetGraph,
           disabled: _options.skipBuildScriptCheck);
 
-      var buildScriptUpdated = !_options.skipBuildScriptCheck &&
-          buildScriptUpdates.hasBeenUpdated(updates.keys.toSet());
+      var buildScriptUpdated = !_options.skipBuildScriptCheck;
+//          && buildScriptUpdates.hasBeenUpdated(updates.keys.toSet());
       if (buildScriptUpdated) {
         _logger.warning('Invalidating asset graph due to build script update!');
 
