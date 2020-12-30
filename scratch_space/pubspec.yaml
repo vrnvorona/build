@@ -8,7 +8,10 @@ environment:
 
 dependencies:
   build:
-    path: '../build'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   crypto: ">=2.0.3 <3.0.0"
   path: ^1.1.0
   pedantic: ^1.0.0
@@ -16,7 +19,13 @@ dependencies:
 
 dev_dependencies:
   build_runner:
-    path: '../build_runner'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner
   build_test:
-    path: '../build_test'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_test
   test: ^1.0.0

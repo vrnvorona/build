@@ -24,4 +24,7 @@ dev_dependencies:
 
 dependency_overrides:
   build_resolvers:
-    path: ../build_resolvers
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_resolvers

@@ -23,6 +23,12 @@ dev_dependencies:
 dependency_overrides:
   # Required due to the tight dependency on this package from these packages
   build_runner:
-    path: ../build_runner
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner
   build_runner_core:
-    path: ../build_runner_core
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner_core

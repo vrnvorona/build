@@ -11,9 +11,15 @@ dependencies:
   async: ^2.0.0
   bazel_worker: ^0.1.20
   build:
-    path: '../build'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   build_config:
-    path: '../build_config'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_config
   collection: ^1.0.0
   crypto: ^2.0.0
   glob: ^1.0.0
@@ -24,14 +30,23 @@ dependencies:
   path: ^1.4.2
   pedantic: ^1.0.0
   scratch_space:
-    path: '../scratch_space'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: scratch_space
 
 dev_dependencies:
   # Used inside tests
   build_runner:
-    path: '../build_runner'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner
   build_test:
-    path: '../build_test'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_test
   test: ^1.6.0
   a:
     path: test/fixtures/a

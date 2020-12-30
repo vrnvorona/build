@@ -9,7 +9,10 @@ environment:
 dependencies:
   analyzer: ">=0.40.1 <0.42.0"
   build:
-    path: '../build'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   crypto: ^2.0.0
   graphs: ^0.2.0
   logging: ^0.11.2
@@ -22,7 +25,10 @@ dependencies:
 dev_dependencies:
   test: ^1.0.0
   build_test:
-    path: '../build_test'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
 
 dependency_overrides:
   build:

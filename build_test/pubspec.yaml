@@ -9,11 +9,20 @@ environment:
 dependencies:
   async: ">=1.2.0 <3.0.0"
   build:
-    path: '../build'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   build_config:
-    path: '../build_config'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_config
   build_resolvers:
-    path: '../build_resolvers'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_resolvers
   crypto: ">=0.9.2 <3.0.0"
   glob: ^1.1.0
   html: ">=0.9.0 <0.15.0"

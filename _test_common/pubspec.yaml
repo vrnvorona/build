@@ -7,13 +7,25 @@ environment:
 
 dependencies:
   build:
-    path: '../build'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   build_config:
-    path: '../build_config'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_config
   build_runner_core:
-    path: '../build_runner_core'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner_core
   build_test:
-    path: '../build_test'
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_test
   crypto: ^2.0.0
   logging: ^0.11.0
   package_config: ^1.9.0
@@ -24,12 +36,27 @@ dependencies:
 
 dependency_overrides:
   build:
-    path: ../build
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build
   build_config:
-    path: ../build_config
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_config
   build_resolvers:
-    path: ../build_resolvers
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_resolvers
   build_runner_core:
-    path: ../build_runner_core
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_runner_core
   build_test:
-    path: ../build_test
+    git:
+      url: https://github.com/vrnvorona/build
+      ref: cache_and_build_folder_fix
+      path: build_test

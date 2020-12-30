@@ -3,6 +3,7 @@
 .packages
 doc/
 pubspec.lock
+.idea
 
 # Common build output
 /*/build/
