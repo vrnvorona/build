@@ -17,7 +17,7 @@ dependencies:
     git:
       url: https://github.com/vrnvorona/build
       ref: cache_and_build_folder_fix
-      path: build_onfig
+      path: build_config
   build_resolvers:
     git:
       url: https://github.com/vrnvorona/build
